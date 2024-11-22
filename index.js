@@ -10,13 +10,6 @@ import ModuleRoutes from "./Kanbas/Modules/routes.js";
 import AssignmentRoutes from "./Kanbas/Assignments/routes.js";
 const app = express();
 app.use(express.json());
-app.use(
-  cors({
-    credentials: true,
-    origin: process.env.NETLIFY_URL || "http://localhost:3000",
-    origin: process.env.NETLIFY_URL || "http://localhost:3000",
-  })
-);
 const sessionOptions = {
   secret: process.env.SESSION_SECRET || "kanbas",
   resave: false,
@@ -31,6 +24,12 @@ if (process.env.NODE_ENV !== "development") {
   };
 }
 app.use(session(sessionOptions));
+app.use(
+  cors({
+    credentials: true,
+    origin: process.env.NETLIFY_URL || "http://localhost:3000",
+  })
+);
 
 UserRoutes(app);
 CourseRoutes(app);
