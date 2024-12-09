@@ -11,7 +11,7 @@ const schema = new mongoose.Schema(
         isCorrect: Boolean,
       },
     ],
-    quiz: { type: mongoose.Schema.Types.ObjectId, ref: "QuizModel" },
+    quiz: { type: mongoose.Schema.Types.Mixed, ref: "QuizModel" },
   },
   { collection: "questions" }
 );
