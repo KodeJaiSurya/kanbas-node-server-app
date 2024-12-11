@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const schema = new mongoose.Schema(
   {
-    _id: String,
+    // _id: String,
     title: String,
     description: String,
     quizType: String,
